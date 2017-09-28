@@ -1,18 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
-    public const int maxHealth = 7;
+    public int currScore;
+    public Text score;
 
-    public int currentHealth = maxHealth;
-
-    public void TakeDamage()
+    private void Start()
     {
-        currentHealth -= 1;
-        if (currentHealth <= 0) {
-            currentHealth = 0;
-            Debug.Log("Lose!");
+        currScore = 0;    
+    }
+
+    public void IncreaseScore()
+    {
+        currScore += 1;
+
+        if (currScore >= 10) {
+            currScore = 10;
         }
+
+        score.text = "Score: " + currScore.ToString();
     }
 	
 }
